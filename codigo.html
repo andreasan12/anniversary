@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desbloquea el Código</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fef6f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input {
+      margin: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid #ccc;
+      width: 100px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      background-color: #ff86ab;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+    .code {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      color: #2b9348;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Introduce el orden correcto</h2>
+    <input type="text" id="val1" maxlength="10">
+    <input type="text" id="val2" maxlength="10">
+    <input type="text" id="val3" maxlength="10">
+    <br>
+    <button onclick="checkCode()">Desbloquear</button>
+    <div id="result" class="code">✨ El código secreto es: <strong>1</strong> ✨</div>
+  </div>
+
+  <script>
+    const correct = ["pixar", "autocine", "redone"];
+
+    function checkCode() {
+      const v1 = document.getElementById('val1').value.trim().toLowerCase();
+      const v2 = document.getElementById('val2').value.trim().toLowerCase();
+      const v3 = document.getElementById('val3').value.trim().toLowerCase();
+
+      if (v1 === correct[0] && v2 === correct[1] && v3 === correct[2]) {
+        document.getElementById('result').style.display = 'block';
+      } else {
+        alert("Las claves no coinciden. Intenta de nuevo");
+      }
+    }
+  </script>
+</body>
+</html>
